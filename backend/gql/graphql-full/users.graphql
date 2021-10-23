@@ -1,0 +1,52 @@
+type User {
+  id: ID!
+  username: String!
+  password_hash: String!
+  created_at: DateTime
+  last_activity_at: DateTime
+}
+
+type NotAuthenticatedError implements Error {}
+
+type NotAuthorizedError implements Error {
+  user: User
+  scope: [String]
+}
+
+type UserAlreadyExistsError implements Error {
+  username: String
+}
+
+type WeakPasswordError implements Error {
+  passwordRequirements: String
+}
+
+union UserResponse = User | NotAuthenticatedError | NotAuthorizedError
+
+type Users {
+  users: [User]!
+}
+union UsersResponse = Users | NotAuthenticatedError | NotAuthorizedError
+
+type Query {
+  users(
+    created_after: DateTime,
+    created_before: DateTime,
+    last_activity_after: DateTime,
+    last_activity_before: DateTime
+  ): UsersResponse
+
+  user(id: ID!): UserResponse
+}
+
+scalar Token
+union LoginResponse = Token | NotAuthenticatedError
+union RegisterResponse = Boolean | UserAlreadyExistsError | WeakPasswordError
+union ChangePasswordResponse = Boolean | WeakPasswordError | NotAuthenticatedError | NotAuthorizedError
+type Mutation {
+  login(username: String!, password: String!): LoginResponse
+  logout: Boolean!
+  register(username: String!, password: String!): RegisterResponse
+  delete(userId: ID!): Boolean!
+  changePassword(userId: ID!, oldPassword: String!, newPassword: String!): ChangePasswordResponse
+}

@@ -1,0 +1,74 @@
+query {
+  bookmarks {
+    id
+    title
+    url
+    toRead {
+      isImportant
+      isUrgent
+    }
+    notes {
+      createdAt
+      contents
+    }
+  }
+}
+
+
+query {
+  bookmark(id: 2){
+    __typename
+    ... on Bookmark {
+      id
+      title
+      url
+      toRead {
+        isImportant
+        isUrgent
+      }
+      notes {
+        createdAt
+        contents
+      }
+    }
+    ... on Exception {
+      code
+      message
+    }
+  }
+}
+
+
+# Try the below mutation with the following urls -
+# https://avilay.rocks => should work (try with and without a title)
+# https://httpbin.org/status/404 => InvalidUrl
+# https://example.uri => InvalidUrl
+mutation {
+  addBookmark(
+    url: "https://avilay.rocks"
+    title: "My Random Thoughts"
+    isUrgent: true
+    isImportant: true
+    notes: "Some notes here"
+  ) {
+      __typename
+      ... on Bookmark {
+        id
+        url
+        title
+        url
+        toRead {
+          isImportant
+          isUrgent
+        }
+        notes {
+          createdAt
+          contents
+        }
+      }
+      ... on Exception {
+        code
+        message
+      }
+  }
+}

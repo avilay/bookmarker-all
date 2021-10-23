@@ -1,0 +1,33 @@
+type Note {
+  madeAt: DateTime
+  formattedContents: String
+  contents: [Token]!
+}
+
+type Bookmark {
+  id: ID!
+  user: User
+  website: Website
+  addedAt: DateTime
+  notes: [Note]
+}
+
+type Query {
+  bookmarks(
+    urlLike: String
+    websiteContentsLike: String,
+    notesContentsLike: String,
+    contentsLike: String
+    addedBefore: DateTime
+    addedAfter: DateTime
+  ): [Bookmark]!
+
+  bookmark(id: ID, url: String): Bookmark
+}
+
+union BookmarkResponse = Boolean | InvalidUrlError | NotAuthenticatedError | NotAuthorizedError
+type Mutation {
+  newBookmark(url: String!, note: Note!): Boolean!
+  addNote(bookmarkId: ID!, note: Note!): BookmarkResponse
+  removeBookmark(bookmarkId: ID!): BookmarkResponse
+}

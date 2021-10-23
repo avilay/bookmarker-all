@@ -1,0 +1,25 @@
+type Website {
+  url: String!
+  lastCrawledAt: DateTime!
+  contents: [Token]
+  isDefunct: Boolean!
+}
+
+type Query {
+  websites(
+    urlLike: String,
+    lastCrawledBefore: DateTime,
+    lastCrawledAfter: DateTime,
+    contentsLike: String
+  ): [Website]!
+
+  website(url: String): Website
+}
+
+union WebsiteResponse = Boolean | InvalidUrlError | NotAuthenticatedError | NotAuthorizedError
+type Mutation {
+  addWebsite(url: String): WebsiteResponse
+  removeWebsite(url: String): WebsiteResponse
+  crawl(urlLike: String, lastCrawledBefore: DateTime, force: Boolean): WebsiteResponse
+  markAsDefunct(url: String): WebsiteResponse
+}

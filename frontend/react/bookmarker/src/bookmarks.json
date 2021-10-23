@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)",
+        "url": "https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/",
+        "notes": "A really good primer to the confusing world of unicode and code sheets and what not. Especially good at explaining the difference between utf-8 and utf-16."
+    },
+    {
+        "id": 2,
+        "title": "rougier/numpy-100: 100 numpy exercises (with solutions)",
+        "url": "https://github.com/rougier/numpy-100",
+        "notes": "This is kinda/sorta good. Have not gone through all the 100 problems. Maybe I should at some point."
+    },
+    {
+        "id": 3,
+        "title": "NumFOCUS: A Nonprofit Supporting Open Code for Better Science",
+        "url": "https://numfocus.org",
+        "notes": "A very cool concept where this chartiable organization provides support to open source projects on scientific computing stacks."
+    },
+    {
+        "id": 4,
+        "title": "Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases",
+        "url": "https://www.allthingsdistributed.com/files/p1041-verbitski.pdf",
+        "notes": "Research paper on the design documnent of Aurora. Might be a good read somebody :-P"
+    }
+]

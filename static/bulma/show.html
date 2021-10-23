@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item is-size-3 has-text-weight-semibold" href="index.html">
+            Bookmarker
+          </a>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div> <!-- end brand -->
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">Bookmarks</a>
+            <a class="navbar-item">Collections</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">More</a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">New</a>
+                <a class="navbar-item">Jobs</a>
+                <a class="navbar-item">Contact</a>
+                <hr class="navbar-divider" />
+                <a class="navbar-item">Report an issue</a>
+              </div>
+            </div>
+          </div> <!-- end navbar-start -->
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              Welcome Aptg
+            </div>
+          </div>
+        </div> <!-- end navbarBasicExample -->
+      </nav>
+
+      <section class="section">
+        <div class="container">
+          <h1 class="subtitle is-3">Beautiful ideas in programming: generators and continuations</h1>
+          <div class="block">
+            <a href="#">https://www.hhyu.org/posts/generator_and_continuation/</a>
+          </div>
+          <p class="block">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+          <div class="block">
+            <a class="button" href="edit.html">Edit</a>
+            <a class="button" href="#">Delete</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener("click", () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle("is-active");
+            $target.classList.toggle("is-active");
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

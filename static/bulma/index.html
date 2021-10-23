@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item is-size-3 has-text-weight-semibold" href="index.html">
+            Bookmarker
+          </a>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div> <!-- end brand -->
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item is-active">Bookmarks</a>
+            <a class="navbar-item">Collections</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">New</a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">Bookmark</a>
+                <a class="navbar-item">Collection</a>
+              </div>
+            </div>
+          </div> <!-- end navbar-start -->
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div clas="buttons">
+                <a class="button is-dark">
+                  <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">Log in</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- end navbarBasicExample -->
+      </nav>
+
+      <section class="section">
+        <div class="container">
+          <!-- header -->
+          <div class="level">
+            <div class="level-left">
+              <!-- title -->
+              <div class="level-item">
+                <h1 class="title">
+                  Bookmarks
+                </h1>
+              </div>
+              <!-- End title -->
+
+              <!-- Search box -->
+              <div class="level-item">
+                <div class="field has-addons">
+                  <p class="control">
+                    <input class="input" type="text" />
+                  </p>
+                  <p class="control">
+                    <a class="button is-info is-light is-outlined">
+                      Search
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <!-- End search box -->
+            </div>
+          </div>
+          <!-- End header -->
+
+          <article class="block">
+            <a href="./show.html">Evolution Of Search Engines Architecture - Algolia New Search Engine Architecture Part 1</a>
+          </article>
+
+          <article class="block">
+            <a href="./show.html">Beautiful ideas in programming: generators and continuations</a>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+          el.addEventListener("click", () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle("is-active");
+            $target.classList.toggle("is-active");
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

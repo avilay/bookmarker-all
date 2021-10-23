@@ -1,0 +1,16 @@
+interface Error {
+  code: Int!
+  message: String
+}
+
+scalar DateTime
+
+type Token {
+  id: ID!
+  value: String!
+}
+
+type InvalidUrlError implements Error {
+  url: String
+  httpStatus: Int
+}
