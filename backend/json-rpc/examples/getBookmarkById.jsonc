@@ -1,0 +1,42 @@
+[
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "getBookmarkById",
+  "params": [1]
+},
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "bookmarkId": 1,
+    "url": "https://full/url/path",
+    "title": "Bookmark Title",
+    "toRead": {
+      "isUrgent": false,
+      "isImportant": true
+    },
+    "notes": [
+      {
+        "createdAt": "2021-01-01",
+        "contents": "Some notes here."
+      },
+      {
+        "createdAt": "2021-01-02",
+        "contents": "Some notes here."
+      }
+    ]
+  }
+},
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "error": {
+    // This error code can be mapped to ArgumentError
+    "code": -32602,
+    "message": "Bookmark Id does not exist."
+  }
+}
+]

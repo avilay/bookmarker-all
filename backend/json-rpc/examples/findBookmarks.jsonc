@@ -1,0 +1,51 @@
+[
+{
+  "jsonrpc": "2.0",
+  "method": "findBookmarks",
+  "id": 1,
+  "params": {
+    "urlLike": "url/fragment/here",
+    "titleLike": "title keyword here",
+    "notesLike": "notes keyword here",
+    "isImportant": true,
+    "isUrgent": false,
+    "searchString": "general search keyword here"
+  }
+},
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "bookmarkId": 1,
+      "url": "https://full/url/path",
+      "title": "Bookmark Title",
+      "toRead": {
+        "isUrgent": false,
+        "isImportant": true
+      },
+      "notes": [
+        {
+          "createdAt": "2021-01-01",
+          "contents": "Some notes here."
+        },
+        {
+          "createdAt": "2021-01-02",
+          "contents": "Some notes here."
+        }
+      ]
+    },
+    {
+      "bookmarkId": 2,
+      "url": "https://full/url/path",
+      "title": "Another Bookmark Matching Search Query",
+      "toRead": {
+        "isUrgent": false,
+        "isImportant": true
+      },
+      "notes": []
+    }
+  ]
+}
+]

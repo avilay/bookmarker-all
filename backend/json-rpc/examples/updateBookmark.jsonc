@@ -1,0 +1,24 @@
+[
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "updateBookmark",
+  "params": {
+    "bookmarkId": 11,
+    "newTitle": "New Title Here",
+    "newToRead": {
+      "isUrgent": false,
+      "isImportant": true
+    },
+    "newNote": "New note contents here."
+  }
+},
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    // echo the full and updated bookmark object here
+  }
+}
+]

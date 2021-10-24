@@ -1,5 +1,5 @@
 .DS_Store
-
+.vscode/
 # javascript
 node_modules/
 .flowconfig
@@ -10,6 +10,7 @@ yarn.lock
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
 
 # Jupyter Notebook
 .ipynb_checkpoints

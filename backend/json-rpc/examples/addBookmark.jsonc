@@ -1,0 +1,50 @@
+[
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "addBookmark",
+  "params": {
+    "url": "https://this/is/required",
+    // Can omit the title
+    // toRead is optional as well
+    "toRead": {
+      "isImportant": false,
+      "isUrgent": false
+    },
+    // note is required
+    "note": "Only a single note with no timestamp."
+  }
+},
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "bookmarkId": 11,
+    "url": "https://echo/the/same/url",
+    "title": "Auto Assigned Title",
+    // default values of toRead are false, false
+    "toRead": {
+      "isImportant": false,
+      "isUrgent": false
+    },
+    // notes array will contain only a single note
+    "notes": [
+      {
+        "createdAt": "2021-01-01",
+        "contents": "Only a single note with no timestamp."
+      }
+    ]
+  }
+},
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "error": {
+    // This error code can be mapped to ArgumentError
+    "code": -32602,
+    "message": "Invalid url."
+  }
+}
+]

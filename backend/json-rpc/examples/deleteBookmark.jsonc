@@ -1,0 +1,6 @@
+{
+  "jsonrpc": "2.0",
+  // omit the id because client does not care about the response
+  "method": "deleteBookmark",
+  "params": [1]
+}
