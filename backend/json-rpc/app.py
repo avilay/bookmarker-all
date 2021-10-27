@@ -1,12 +1,17 @@
-from flask import Flask, request, abort
-import werkzeug.exceptions as ex
-from inflection import underscore, camelize
-import bmservice as svc
+import traceback
 from dataclasses import asdict
 from functools import partial
 
+import bmservice as svc
+import werkzeug.exceptions as ex
+from flask import Flask, abort, request
+from flask_cors import CORS
+from inflection import camelize, underscore
+
+import time
 
 app = Flask(__name__)
+CORS(app)
 
 
 def fix_naming(obj, convert):
@@ -26,26 +31,33 @@ def fix_naming(obj, convert):
 
 @app.errorhandler(ex.NotFound)
 def handle_not_found(e):
+    app.logger.error(f"NotFound error: {e.description}")
     return {"code": -32601, "message": e.description}, e.code
 
 
 @app.errorhandler(ex.BadRequest)
 def handle_bad_request(e):
+    app.logger.error(f"BadReqeust error: {e.description}")
     return {"code": -32700, "message": e.description}, e.code
 
 
 @app.errorhandler(TypeError)
 def handle_type_error(e):
+    app.logger.error(f"TypeError: {str(e)}")
+    traceback.print_exc()
     return {"code": -32600, "message": str(e)}, 400
 
 
 @app.errorhandler(ValueError)
 def handle_value_error(e):
+    app.logger.error(f"ValueError: {str(e)}")
     return {"code": -32602, "message": str(e)}, 400
 
 
 @app.route("/", methods=["POST"])
 def endpoint():
+    print(request.data.decode("utf-8"))
+    print("is json: ", request.is_json)
     req = request.get_json()
     if "jsonrpc" not in req or req["jsonrpc"] != "2.0":
         raise TypeError("jsonrpc property absent or not set to 2.0")
@@ -91,9 +103,13 @@ def get_all_bookmarks():
 def get_bookmark_by_url(url):
     bm = svc.bookmark_url(url)
     if bm is None:
-        bm = {}
-    js_naming = partial(camelize, uppercase_first_letter=False)
-    return fix_naming(asdict(bm), js_naming)
+        print("Got None")
+        time.sleep(2)
+        return ""
+    else:
+        print(bm)
+        js_naming = partial(camelize, uppercase_first_letter=False)
+        return fix_naming(asdict(bm), js_naming)
 
 
 def new_bookmark(url, notes, title, to_read=None):

@@ -1,0 +1,15 @@
+{
+  "name": "Bookmarker Chrome Extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Chrome extension for annotated bookmarks.",
+  "icons": {"512": "logo512.png"},
+  "action": {
+    "default_icon": "logo512.png",
+    "default_popup": "index.html"
+  },
+  "permissions": ["tabs", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
